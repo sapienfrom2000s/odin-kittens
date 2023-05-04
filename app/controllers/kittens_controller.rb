@@ -1,6 +1,7 @@
 class KittensController < ApplicationController
   def index
     @kittens = Kitten.all
+    format_data_as_requested(@kittens)
   end
 
   def create
@@ -30,10 +31,11 @@ class KittensController < ApplicationController
 
   def show
     @kitten = Kitten.find(params[:id])
+    format_data_as_requested(@kitten)
   end
 
   def edit
-    show
+    @kitten = Kitten.find(params[:id])
   end
 
   def destroy
@@ -47,6 +49,14 @@ class KittensController < ApplicationController
 
   def kitten_params
     params.require(:kitten).permit(:name, :age, :softness, :cuteness)
+  end
+
+  def format_data_as_requested(object)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => object }
+      format.json { render :json => object }
+    end
   end
 
 end
