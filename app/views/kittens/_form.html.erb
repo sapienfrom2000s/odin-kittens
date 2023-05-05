@@ -10,22 +10,9 @@
   </div>
 <% end %>
 
-<%= form_with model:@kitten do |form| %>
-	<p>
-	<%= form.label :name %><br>	
-	<%= form.text_field :name %>
-	</p>
+ <%= form_with model: @kitten, url: kittens_path do |form| %>
+ <p><%= form.label :softness %><br>
+ <%= form.text_field :softness, placeholder: "On a scale of 10"%></p>
 
-	<p><%= form.label :age %><br>
-	<%= form.text_field :age %></p>
-
-	<p><%= form.label :cuteness %><br>
-	<%= form.text_field :cuteness,\
-	 placeholder: "On a scale of 10" %></p>
-
-	<p><%= form.label :softness %><br>
-	<%= form.text_field :softness,\
-	 placeholder: "On a scale of 10" %></p>
-
-	<p><%= form.submit "Create Entry" %></p>
-<% end %>
+ <p><%= form.submit "Create Entry" %></p>
+ <% end %>

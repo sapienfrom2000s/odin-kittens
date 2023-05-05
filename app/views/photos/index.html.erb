@@ -1,0 +1,8 @@
+<h2>Search flickr photos by id</h2>
+
+<%= form_with scope: :flickr_info, url: photos_index_path, method: :get do |form| %>
+<p><%= form.label :api_key %><br>
+<%= form.text_field :api_key %></p>
+
+<p><%= form.submit "Fetch Images" %></p>
+<% end %>
