@@ -7,7 +7,7 @@ class Photo < ApplicationRecord
   	flickr = Flickr.new(key, secret)
 
     begin
-      json_data = flickr.photos.search(:user_id => user_id)      
+      flickr.photos.search(:user_id => user_id)      
     rescue StandardError => e
       nil
     end
