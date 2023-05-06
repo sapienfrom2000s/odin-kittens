@@ -1,5 +1,6 @@
 
 <% unless @photos_list %>
+<h3><%= flash.now[:notice] %></h3>
 <h2>Search flickr photos by id</h2>
 	<%= form_with scope: :flickr_info, url: photos_index_path, method: :get do |form| %>
 		<p><%= form.label :user_id, "User ID" %><br>

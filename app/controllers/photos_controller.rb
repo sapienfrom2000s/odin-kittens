@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
       if @photos_list
         render "index"
       else
-        flash[:error] = "Enter valid user_id" 
+        flash.now[:notice] = "Enter valid user_id" 
         render "index"
       end
     end
